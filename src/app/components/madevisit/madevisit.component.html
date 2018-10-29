@@ -1,0 +1,25 @@
+<link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<div class="control-section">
+  <ejs-grid [dataSource]='data' allowPaging='true' height=100% [pageSettings]='initialPage'>
+    <e-columns>
+      <e-column field='id_visita' alt='id_visita' headerText='ID VISITA' width='80' textAlign='Right'
+                #valorCol></e-column>
+      <e-column field='invitado.numeroDocu' headerText='N. DOCUMENTO' width='100'></e-column>
+      <e-column field='invitado.nombre_invitado' headerText='NOMBRE' width='170'></e-column>
+      <e-column field='invitado.apellidoP_invitado' headerText='APELLIDO P.' width='100'></e-column>
+      <e-column field='invitado.apellidoM_invitado' headerText='APELLIDO M.' width='100'></e-column>
+      <e-column field='cargo' headerText='CARGO' width='150'></e-column>
+      <e-column field='fechavisita' headerText='FECHA VISITA' width='120' format="yMd" textAlign='Right'></e-column>
+      <e-column field='fecharegistro' headerText='FECHA REG.' width='120' format='C2' textAlign='Right'></e-column>
+      <e-column width='64' textAlign='Center' [allowSorting]="false">
+        <ng-template #template let-data>
+          <button class="btn btn-primary">
+            <i class="fa fa-envelope-o"></i>
+          </button>
+        </ng-template>
+      </e-column>
+
+    </e-columns>
+  </ejs-grid>
+</div>

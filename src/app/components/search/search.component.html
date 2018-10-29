@@ -1,0 +1,504 @@
+<div class="row">
+  <div class="col-md-4">
+    <!-- Widget: user widget style 1 -->
+    <div class="box box-widget widget-user">
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+      <div class="overlay" *ngIf="!loading">
+        <i class="fa fa-refresh fa-spin"></i>
+      </div>
+      <div class="widget-user-header bg-aqua-active" *ngIf="loading">
+        <h3 class="widget-user-username">{{(nombresPerson+" "+apPaterno+" "+apMaterno)|capitalizado}}</h3>
+        <h5 class="widget-user-desc">{{directionPerson | lowercase}}</h5>
+      </div>
+      <div class="widget-user-image">
+        <img class="img-circle" src="/src/assets/dist/img/user1-128x128.jpg" alt="User Avatar">
+      </div>
+
+      <br>
+      <br>
+      <div class="box-footer">
+        <div class="row">
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <h5 class="description-header"><i class="fa fa-phone"></i></h5>
+              <span class="description-text">TELEFONO</span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <h5 class="description-header"><i class="fa fa-envelope-o"></i></h5>
+              <span class="description-text">MAIL</span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4">
+            <div class="description-block">
+              <h5 class="description-header"><i class="fa fa-whatsapp"></i></h5>
+              <span class="description-text">REDES</span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+    </div>
+    <!-- /.widget-user -->
+  </div>
+
+  <div class="col-xs-8">
+    <div class="row">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">Documento</h3>
+
+          <div class="box-tools">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body no-padding">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a><i class="fa fa-inbox"></i> Tipo de Documento
+              <span class="label label-primary pull-right">DNI</span></a></li>
+            <li><a><i class="fa fa-envelope-o"></i> Estado de Documento
+              <span class="label label-primary-y pull-right">Por Confirmar</span></a></li>
+            <li><a><i class="fa fa-file-text-o"></i> Ultima Visita
+              <span class="label label-primary-y pull-right">16/10/2018</span></a></li>
+          </ul>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <div class="callout callout-info">
+        <h4>Alertas</h4>
+
+        <p><b>Morris.js</b> Alertas de Seguridad</p>
+      </div>
+    </div>
+    <!--<div class="row">
+      <div class="info-box bg-gray-active">
+        <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Bookmarks</span>
+          <span class="info-box-number">41,410</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+                    70% Increase in 30 Days
+                  </span>
+        </div>
+        &lt;!&ndash; /.info-box-content &ndash;&gt;
+      </div>
+      &lt;!&ndash; /.info-box &ndash;&gt;
+    </div>
+    <div class="row">
+      <div class="info-box bg-aqua">
+        <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Bookmarks</span>
+          <span class="info-box-number">41,410</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+          <span class="progress-description">
+                    70% Increase in 30 Days
+                  </span>
+        </div>
+        &lt;!&ndash; /.info-box-content &ndash;&gt;
+      </div>
+    </div>-->
+  </div>
+
+
+</div>
+<div class="nav-tabs-custom">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Perfil Personal</a></li>
+    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial de Visitas</a></li>
+    <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Historial de Cargos</a></li>
+    <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Antecedentes</a></li>
+    <li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Otros</a></li>
+
+
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+        Dropdown <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+      </ul>
+    </li>
+    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab_1">
+      <!--<b>How to use:</b>
+
+      <p>Exactly like the original bootstrap tabs except you should use
+        the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+      A wonderful serenity has taken possession of my entire soul,
+      like these sweet mornings of spring which I enjoy with my whole heart.
+      I am alone, and feel the charm of existence in this spot,
+      which was created for the bliss of souls like mine. I am so happy,
+      my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
+      that I neglect my talents. I should be incapable of drawing a single stroke
+      at the present moment; and yet I feel that I never was a greater artist than now.-->
+      <div class="overlay" *ngIf="!informacionLoading">
+        <i class="fa fa-refresh fa-spin"></i>
+      </div>
+      <div class="box box-info" *ngIf="informacionLoading">
+        <div class="box-header with-border">
+          <h3 class="box-title">Latest Orders</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style="">
+          <div class="table-responsive">
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+
+              <p class="text-muted">
+                B.S. in Computer Science from the University of Tennessee at Knoxville
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+
+              <p class="text-muted">{{ubigeoPerson}}</p>
+
+              <hr>
+
+              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+
+              <p>
+                <span class="label label-danger">UI Design</span>
+                <span class="label label-success">Coding</span>
+                <span class="label label-info">Javascript</span>
+                <span class="label label-warning">PHP</span>
+                <span class="label label-primary">Node.js</span>
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+
+              <p>El usuario no tiene incidencias adicionales o es su primera visita al Ministerio</p>
+            </div>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix" style="">
+          <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Agregar Nueva Informacion</a>
+          <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Actualizar Informacion</a>
+        </div>
+        <!-- /.box-footer -->
+      </div>
+    </div>
+    <!-- /.tab-pane -->
+    <div class="tab-pane" id="tab_2">
+      The European languages are members of the same family. Their separate existence is a myth.
+      For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+      in their grammar, their pronunciation and their most common words. Everyone realizes why a
+      new common language would be desirable: one could refuse to pay expensive translators. To
+      achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+      words. If several languages coalesce, the grammar of the resulting language is more simple
+      and regular than that of the individual languages.
+    </div>
+    <!-- /.tab-pane -->
+    <div class="tab-pane" id="tab_3">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      It has survived not only five centuries, but also the leap into electronic typesetting,
+      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+      sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+      like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+    <div class="tab-pane" id="tab_4">
+      <div class="row">
+
+        <!-- TODO Columnas oriniales con mejor personalizacion -->
+        <!--<div class="col-md-4">
+          &lt;!&ndash; DIRECT CHAT &ndash;&gt;
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Penales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            &lt;!&ndash; /.box-header &ndash;&gt;
+            <div class="box-body no-padding">
+              <ul class="users-list clearfix">
+                <li>
+                  <img src="/src/assets/dist/img/user1-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Alexander Pierce</a>
+                  <span class="users-list-date">Today</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user8-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Norman</a>
+                  <span class="users-list-date">Yesterday</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user7-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Jane</a>
+                  <span class="users-list-date">12 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user6-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">John</a>
+                  <span class="users-list-date">12 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user2-160x160.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Alexander</a>
+                  <span class="users-list-date">13 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user5-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Sarah</a>
+                  <span class="users-list-date">14 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user4-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Nora</a>
+                  <span class="users-list-date">15 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user3-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Nadia</a>
+                  <span class="users-list-date">15 Jan</span>
+                </li>
+              </ul>
+              &lt;!&ndash; /.users-list &ndash;&gt;
+            </div>
+            &lt;!&ndash; /.box-body &ndash;&gt;
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">View All Users</a>
+            </div>
+            &lt;!&ndash; /.box-footer &ndash;&gt;
+          </div>
+          &lt;!&ndash;/.direct-chat &ndash;&gt;
+        </div>-->
+        <!-- /.col -->
+
+        <!-- TODO Columna con personalizacion para chat -->
+        <!--<div class="col-md-4">
+          &lt;!&ndash; DIRECT CHAT &ndash;&gt;
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Judiciales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            &lt;!&ndash; /.box-header &ndash;&gt;
+            <div class="box-body no-padding">
+              <ul class="users-list clearfix">
+                <li>
+                  <img src="/src/assets/dist/img/user1-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Alexander Pierce</a>
+                  <span class="users-list-date">Today</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user8-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Norman</a>
+                  <span class="users-list-date">Yesterday</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user7-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Jane</a>
+                  <span class="users-list-date">12 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user6-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">John</a>
+                  <span class="users-list-date">12 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user2-160x160.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Alexander</a>
+                  <span class="users-list-date">13 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user5-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Sarah</a>
+                  <span class="users-list-date">14 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user4-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Nora</a>
+                  <span class="users-list-date">15 Jan</span>
+                </li>
+                <li>
+                  <img src="/src/assets/dist/img/user3-128x128.jpg" alt="User Image">
+                  <a class="users-list-name" href="#">Nadia</a>
+                  <span class="users-list-date">15 Jan</span>
+                </li>
+              </ul>
+              &lt;!&ndash; /.users-list &ndash;&gt;
+            </div>
+            &lt;!&ndash; /.box-body &ndash;&gt;
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">View All Users</a>
+            </div>
+            &lt;!&ndash; /.box-footer &ndash;&gt;
+          </div>
+          &lt;!&ndash;/.direct-chat &ndash;&gt;
+        </div>-->
+        <!-- /.col -->
+
+        <div class="col-md-4">
+          <!-- DIRECT CHAT -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Penales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="overlay" *ngIf="!apLoading">
+              <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body" *ngIf="apLoading">
+              <ul class="clearfix">
+                <br>
+                <div class="no-padding1"><img class="img-circle" src="/src/assets/dist/img/user1-128x128.jpg"
+                                              alt="User Image">
+                </div>
+                <a class="users-list-name no-padding">{{antecedentePenal}}</a>
+                <span class="users-list-date no-padding1">Ultima Actualizacion</span>
+                <span class="users-list-date no-padding1">{{dateToday | date:'short'}}</span>
+              </ul>
+              <!-- /.users-list -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">Actualizar</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+        <div class="col-md-4">
+          <!-- DIRECT CHAT -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Policiales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="overlay" *ngIf="!apLoading2">
+              <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body" *ngIf="apLoading2">
+              <ul class="clearfix">
+                <br>
+                <div class="no-padding1"><img class="img-circle" src="/src/assets/dist/img/user1-128x128.jpg"
+                                              alt="User Image"></div>
+                <a class="users-list-name no-padding">{{antecedentePolicial_result}}</a>
+                <span class="users-list-date no-padding1">Ultima Actualizacion :</span>
+                <span class="users-list-date no-padding1">{{dateToday | date:'short'}}</span>
+
+              </ul>
+              <!-- /.users-list -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">Actualizar</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+        <div class="col-md-4">
+          <!-- DIRECT CHAT -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Judiciales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="overlay" *ngIf="!apLoading3">
+              <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body" *ngIf="apLoading3">
+              <ul class="clearfix">
+                <br>
+                <div class="no-padding1"><img class="img-circle" src="/src/assets/dist/img/user1-128x128.jpg"
+                                              alt="User Image"></div>
+                <a class="users-list-name no-padding">{{antecedenteJudicial}}</a>
+                <span class="users-list-date no-padding1">Ultima Actualizacion</span>
+                <span class="users-list-date no-padding1">{{dateToday | date:'short'}}</span>
+              </ul>
+              <!-- /.users-list -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">Actualizar</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tab-pane" id="tab_5">
+
+    </div>
+    <!-- /.tab-pane -->
+  </div>
+  <!-- /.tab-content -->
+</div>

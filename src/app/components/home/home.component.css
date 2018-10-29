@@ -1,0 +1,27 @@
+.imagenlogo {
+  width: 20%;
+  height: 20%;
+}
+
+.padre {
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.marginbttm{
+  margin-top: 10px;
+}
+
+.paddng{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.padding1{
+  padding-bottom: 20px;
+}
+
+.colorPersonalize{
+  background-color: #0097bc;
+}
+

@@ -1,0 +1,58 @@
+<div class="content padre m-5">
+  <!--<div class="container-fluid">
+    <img class="m-5 imagenlogo"
+         src="/src/assets/dist/img/logo.svg">
+  </div>-->
+
+  <div class="box box-widget widget-user">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-aqua-active colorPersonalize">
+      <h3 class="widget-user-username">Verificación de Información Básica</h3>
+      <h5 class="widget-user-desc">DNI &amp; RUC</h5>
+    </div>
+    <div class="widget-user-image marginbttm">
+      <img class="img-circle" src="/src/assets/dist/img/logo.svg" alt="User Avatar">
+    </div>
+
+    <br>
+    <br>
+    <div class="box-footer">
+      <div class="row">
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Policiales</h5>
+            <span class="description-text">ANTECEDENTES</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Judiciales</h5>
+            <span class="description-text">ANTECEDENTES</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4">
+          <div class="description-block">
+            <h5 class="description-header">Penales</h5>
+            <span class="description-text">ANTECEDENTES</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <div class="form-group paddng">
+      <input type="text" maxlength="8" class="form-control buttonSearch" placeholder="Ingrese DNI"
+             #numeroDNI>
+    </div>
+    <div class="form-group paddng padding1">
+      <button (click)="getRuteo(numeroDNI.value)" type="button"
+              class="btn btn-block btn-primary colorPersonalize">Buscar Datos
+      </button>
+    </div>
+  </div>
+</div>
