@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/src/assets/bower_components/Ionicons/css/ionicons.min.css">
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Personas</li>
+    </ol>
+  </h1>
+</section>
+<kendo-grid #grid
+            [data]="gridView"
+            [pageSize]="pageSize"
+            [skip]="skip"
+            [pageable]="true"
+            (pageChange)="pageChange($event)"
+            (cellClick)="cellClickHandler($event)"
+
+>
+  <kendo-grid-column field="id_invitado" title="ID" width="69"></kendo-grid-column>
+  <kendo-grid-column field="nombre_invitado" title="NOMBRE" width="128"></kendo-grid-column>
+  <kendo-grid-column field="apellidoP_invitado" title="A. PATERNo" width="128"></kendo-grid-column>
+  <kendo-grid-column field="apellidoM_invitado" title="A. MATERNO"></kendo-grid-column>
+  <kendo-grid-column field="tipoDocu" title="TIPO DOC."></kendo-grid-column>
+  <kendo-grid-column field="numeroDocu" title="NRO. DOC"></kendo-grid-column>
+  <kendo-grid-column field="idEmpresa" title="ID. EMPRESA"></kendo-grid-column>
+  <kendo-grid-column field="validoReniec" title="VALIDO"></kendo-grid-column>
+
+  <kendo-grid-command-column title="ANTECEDENTES">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button class="btn btn-success ion-checkmark"></button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
