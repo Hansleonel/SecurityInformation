@@ -1,29 +1,49 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {DnipersonaService} from '../../services/dnipersona.service';
+import {GridDataResult, PageChangeEvent} from '@progress/kendo-angular-grid';
 
 @Component({
   selector: 'app-planedvisit',
   templateUrl: './planedvisit.component.html',
   styleUrls: ['./planedvisit.component.css']
 })
-export class PlanedvisitComponent implements OnInit {
+export class PlanedvisitComponent {
 
-  public dataReunion: Object[];
-  public initialPage: any;
+  public gridView: GridDataResult;
+  public pageSize = 10;
+  public skip = 0;
+  private data: Object[];
+
+  private items: any[];
 
   constructor(private http: HttpClient,
-              private reunionService: DnipersonaService) {
+              private visitaService: DnipersonaService) {
 
-    this.initialPage = {pageSizes: 20, pageCount: 4};
+    this.visitaService.getReunionPersonas()
+      .subscribe((response: any) => {
+        this.items = response;
+        this.loadItems();
 
-    this.reunionService.getReunionPersonas()
-      .subscribe((respuesta: any) => {
-        this.dataReunion = respuesta;
+        // const a = this.items[0]['invitado']['id_invitado'];
+        // console.log('ESTE ES EL ID DEL INVITADO' + a);
       });
   }
 
-  ngOnInit() {
+  public cellClickHandler({sender, rowIndex, columnIndex, dataItem}) {
+    console.log(dataItem['id_reunion_persona']);
+  }
+
+  public pageChange(event: PageChangeEvent): void {
+    this.skip = event.skip;
+    this.loadItems();
+  }
+
+  private loadItems(): void {
+    this.gridView = {
+      data: this.items.slice(this.skip, this.skip + this.pageSize),
+      total: this.items.length
+    };
   }
 
 }

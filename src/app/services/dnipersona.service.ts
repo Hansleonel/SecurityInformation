@@ -33,4 +33,16 @@ export class DnipersonaService {
   getAntecedentesJudiciales(numeroDniSearch: string) {
     return this.http.get(`http://localhost:8080/api/antecedentesJudiciales/${numeroDniSearch}`);
   }
+
+  getPersonas() {
+    return this.http.get('http://localhost:8080/api/invitado');
+  }
+}
+
+export interface DATOS {
+  id_visita: number;
+  cargo: string;
+  fechavisita: string;
+  fecharegistro: string;
+  invitado: string;
 }

@@ -1,3 +1,4 @@
+<!--
 <div class="control-section">
   <ejs-grid [dataSource]='data' allowPaging='true' height=100% [pageSettings]='initialPage'>
     <e-columns>
@@ -21,3 +22,50 @@
     </e-columns>
   </ejs-grid>
 </div>
+-->
+<!--
+<kendo-grid
+  [data]="gridView"
+  [pageSize]="pageSize"
+  [skip]="skip"
+  [pageable]="true"
+  [height]="400"
+  (pageChange)="pageChange($event)"
+>
+</kendo-grid>
+-->
+<link rel="stylesheet" href="/src/assets/bower_components/Ionicons/css/ionicons.min.css">
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Visitas</a></li>
+      <li class="active">Visitas Realizadas</li>
+    </ol>
+  </h1>
+</section>
+<kendo-grid #grid
+            [data]="gridView"
+            [pageSize]="pageSize"
+            [skip]="skip"
+            [pageable]="true"
+            (pageChange)="pageChange($event)"
+            (cellClick)="cellClickHandler($event)"
+
+>
+  <kendo-grid-column field="id_visita" title="VISITA" width="69"></kendo-grid-column>
+  <kendo-grid-column field="invitado.numeroDocu" title="DOCUMENTO" width="128"></kendo-grid-column>
+  <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE" width="128"></kendo-grid-column>
+  <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO"></kendo-grid-column>
+  <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO"></kendo-grid-column>
+  <kendo-grid-column field="cargo" title="CARGO"></kendo-grid-column>
+  <kendo-grid-column field="fechavisita" title="FECHA V."></kendo-grid-column>
+  <kendo-grid-column field="fecharegistro" title="FECHA R."></kendo-grid-column>
+  <kendo-grid-command-column title="ANTECEDENTES">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button class="btn btn-success ion-checkmark"></button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
+
+

@@ -18,7 +18,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {CapitalizadoPipe} from './pipes/capitalizado.pipe';
 import {SecuritycamComponent} from './components/securitycam/securitycam.component';
 
-import {GridModule} from '@syncfusion/ej2-angular-grids';
+// import {GridModule} from '@syncfusion/ej2-angular-grids';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PersonComponent } from './components/person/person.component';
+
+
 
 @NgModule({
   declarations: [
@@ -31,7 +36,8 @@ import {GridModule} from '@syncfusion/ej2-angular-grids';
     MadevisitComponent,
     // TODO los PIPES se definen en las declaraciones
     CapitalizadoPipe,
-    SecuritycamComponent
+    SecuritycamComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,8 @@ import {GridModule} from '@syncfusion/ej2-angular-grids';
     APP_ROUTING,
     // TODO declarando el HTTPCLIENTMODULE para poder realizar peticiones
     HttpClientModule,
-    GridModule
+    GridModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

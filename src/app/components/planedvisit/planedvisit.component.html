@@ -1,3 +1,4 @@
+<!--
 <section class="content-header">
   <h1>
     Data Tables
@@ -9,7 +10,7 @@
     <li class="active">Data tables</li>
   </ol>
 </section>
-<!--
+&lt;!&ndash;
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
@@ -353,7 +354,7 @@
   </div>
   &lt;!&ndash; /.row &ndash;&gt;
 </section>
--->
+&ndash;&gt;
 <div class="control-section">
   <ejs-grid [dataSource]='dataReunion' allowPaging='false' height=100%>
     <e-columns>
@@ -379,3 +380,38 @@
     </e-columns>
   </ejs-grid>
 </div>
+-->
+<link rel="stylesheet" href="/src/assets/bower_components/Ionicons/css/ionicons.min.css">
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Visitas</a></li>
+      <li class="active">Visitas Programadas</li>
+    </ol>
+  </h1>
+</section>
+<kendo-grid #grid
+            [data]="gridView"
+            [pageSize]="pageSize"
+            [skip]="skip"
+            [pageable]="true"
+            (pageChange)="pageChange($event)"
+            (cellClick)="cellClickHandler($event)"
+
+>
+  <kendo-grid-column field="id_reunion_persona" title="VISITA"></kendo-grid-column>
+  <kendo-grid-column field="invitado.numeroDocu" title="DOCUMENTO"></kendo-grid-column>
+  <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE"></kendo-grid-column>
+  <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO"></kendo-grid-column>
+  <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO"></kendo-grid-column>
+  <kendo-grid-column field="reunion.fecha_inicio" title="FECHA CITA"></kendo-grid-column>
+  <kendo-grid-column field="reunion.hora_inicio" title="HORA CITA"></kendo-grid-column>
+  <kendo-grid-column field="reunion.doc_autoriza" title="DOC. AUTORIZA"></kendo-grid-column>
+
+  <kendo-grid-command-column title="ANTECEDENTES">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button class="btn btn-success ion-checkmark"></button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>
