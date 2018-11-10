@@ -37,6 +37,21 @@ export class DnipersonaService {
   getPersonas() {
     return this.http.get('http://localhost:8080/api/invitado');
   }
+
+  getPersona(numeroDniSearch: string) {
+    return this.http.get(`http://localhost:8080/api/invitado/${numeroDniSearch}`);
+  }
+
+  getPersonasOrder() {
+    return this.http.get(`http://localhost:8080/api/invitadoOrder`);
+  }
+
+  /*updateInvitado() {
+    this.http.put('http://localhost:8080/api/invitado', this.invitado, httpOptions).subscribe(response => {
+      console.log(response);
+    });
+
+  }*/
 }
 
 export interface DATOS {

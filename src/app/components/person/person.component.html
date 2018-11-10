@@ -14,6 +14,7 @@
             [pageable]="true"
             (pageChange)="pageChange($event)"
             (cellClick)="cellClickHandler($event)"
+            (edit)="editHandler($event)"
 
 >
   <kendo-grid-column field="id_invitado" title="ID" width="69"></kendo-grid-column>
@@ -27,7 +28,7 @@
 
   <kendo-grid-command-column title="ANTECEDENTES">
     <ng-template kendoGridCellTemplate let-isNew="isNew">
-      <button class="btn btn-success ion-checkmark"></button>
+      <button kendoGridEditCommand type="button" [primary]="true">VER</button>
     </ng-template>
   </kendo-grid-command-column>
 </kendo-grid>

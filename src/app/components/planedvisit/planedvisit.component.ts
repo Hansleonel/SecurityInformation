@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {DnipersonaService} from '../../services/dnipersona.service';
 import {GridDataResult, PageChangeEvent} from '@progress/kendo-angular-grid';
+import {Router} from '@angular/router';
+import {IntlModule} from '@progress/kendo-angular-intl';
 
 @Component({
   selector: 'app-planedvisit',
@@ -18,7 +20,8 @@ export class PlanedvisitComponent {
   private items: any[];
 
   constructor(private http: HttpClient,
-              private visitaService: DnipersonaService) {
+              private visitaService: DnipersonaService,
+              private router: Router) {
 
     this.visitaService.getReunionPersonas()
       .subscribe((response: any) => {
@@ -32,6 +35,9 @@ export class PlanedvisitComponent {
 
   public cellClickHandler({sender, rowIndex, columnIndex, dataItem}) {
     console.log(dataItem['id_reunion_persona']);
+    const dni = dataItem['invitado']['numeroDocu'];
+    console.log(dni);
+    this.router.navigate(['/search', dni]);
   }
 
   public pageChange(event: PageChangeEvent): void {
