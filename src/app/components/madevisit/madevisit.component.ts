@@ -4,6 +4,7 @@ import {DATOS, DnipersonaService} from '../../services/dnipersona.service';
 import {GridComponent, GridDataResult, PageChangeEvent} from '@progress/kendo-angular-grid';
 import {add} from '@progress/kendo-angular-inputs/dist/es2015/common/math';
 import {take} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 // import {ItemModel, MenuEventArgs} from '@syncfusion/ej2-splitbuttons';
 
@@ -69,7 +70,8 @@ export class MadevisitComponent {
 
   constructor(private http: HttpClient,
               private visitaService: DnipersonaService,
-              private ngZone: NgZone) {
+              private ngZone: NgZone,
+              private router: Router) {
 
     this.visitaService.getVisitas()
       .subscribe((response: any) => {
@@ -85,7 +87,10 @@ export class MadevisitComponent {
 
 
   public cellClickHandler({sender, rowIndex, columnIndex, dataItem}) {
-    console.log(dataItem['id_visita']);
+    console.log(dataItem['invitado.numeroDocu']);
+    const dni = dataItem['invitado']['numeroDocu'];
+    console.log(dni);
+    this.router.navigate(['/search', dni]);
   }
 
   public cellClickHandler1(dataItem) {

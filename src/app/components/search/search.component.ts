@@ -26,6 +26,11 @@ export class SearchComponent implements OnInit {
   apLoading2: boolean;
   apLoading3: boolean;
 
+  imageLoading: boolean;
+  imageLoading2: boolean;
+  imageLoading3: boolean;
+
+
   antecedentesFromService = {};
 
   antecedentePolicial: string;
@@ -46,6 +51,10 @@ export class SearchComponent implements OnInit {
     this.apLoading = false;
     this.apLoading2 = false;
     this.apLoading3 = false;
+
+    this.imageLoading = true;
+    this.imageLoading2 = true;
+    this.imageLoading3 = true;
 
     // TODO obtener los parametro de la ruta es decir el dni que viene con https://rutapage.com/#/search/PARAMETROQUESEQUIEREOBTENER
     this.activatedRoute.params.subscribe(params => {
@@ -83,6 +92,13 @@ export class SearchComponent implements OnInit {
           this.antecedentePenal = this.antecedentesFromService['soap:Envelope']['soap:Body']
             ['ns2:verificarAntecedentesPenalesResponse']['xMensajeRespuesta'];
 
+          if (this.antecedentePenal.startsWith('El registro indicado no') || this.antecedentePenal.startsWith('El apellido materno')) {
+            this.imageLoading = true;
+          } else {
+            this.imageLoading = false;
+          }
+
+
           this.apLoading = true;
         });
 
@@ -96,8 +112,10 @@ export class SearchComponent implements OnInit {
 
           if (parseFloat(this.antecedentePolicial) === 0) {
             this.antecedentePolicial_result = 'No preseta antecedentes policiales';
+            this.imageLoading2 = true;
           } else if (parseFloat(this.antecedentePolicial) === 1) {
             this.antecedentePolicial_result = 'Presenta antecedentes policiales';
+            this.imageLoading2 = false;
           }
 
           this.apLoading2 = true;
@@ -110,6 +128,13 @@ export class SearchComponent implements OnInit {
             ['getAntecedenteJudicialResponse']['getAntecedenteJudicialReturn']);
           this.antecedenteJudicial = this.antecedentesFromService['soapenv:Envelope']['soapenv:Body']
             ['getAntecedenteJudicialResponse']['getAntecedenteJudicialReturn'];
+
+
+          if (this.antecedenteJudicial.startsWith('No registra antecedentes')) {
+            this.imageLoading3 = true;
+          } else {
+            this.imageLoading3 = false;
+          }
 
           this.apLoading3 = true;
         });

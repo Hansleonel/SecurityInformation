@@ -1,18 +1,16 @@
 .brand-image {
-  position: absolute;
-  float: left;
-  line-height: .8;
-  max-height: 34px;
+  height: 35px;
   width: auto;
-  margin-left: .8rem;
-  margin-right: .5rem;
-  margin-top: -3px
 }
 
-.brand-image {
-  position: absolute;
-  max-height: 44px;
-  margin-top: 1px;
+.fond {
+  background-color: #ffffff;
+}
+
+.brand-image-lg {
+  height: 35px;
+  width: auto;
+  margin-left: 0.8rem;
 }
 
 .brand-image-logo {
@@ -44,4 +42,13 @@
   padding: 0 15px;
   font-weight: 300;
   overflow: hidden;
+}
+
+.marginTool {
+  margin-top: 7px;
+}
+
+.btn-primary-white {
+  color: #000000;
+  background-color: #FBFAF8;
 }
