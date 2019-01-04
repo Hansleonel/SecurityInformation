@@ -43,7 +43,7 @@ export class DnipersonaService {
   }
 
   getPersonasOrder() {
-    return this.http.get(`http://localhost:8080/api/invitadoOrder`);
+    return this.http.get(`http://localhost:8080/api/invitadoOrder?page=0&size=100`);
   }
 
   /*updateInvitado() {

@@ -106,15 +106,23 @@ export class SearchComponent implements OnInit {
         .subscribe((resultado: any) => {
           this.antecedentesFromService = resultado;
           console.log(this.antecedentesFromService['S:Envelope']['S:Body']
-            ['ns0:consultaNombreGeneralResponse']['return']);
+            ['ns0:consultarPersonaNroDocResponse']['RespuestaPersona']['descripcionMensaje']);
           this.antecedentePolicial = this.antecedentesFromService['S:Envelope']['S:Body']
-            ['ns0:consultaNombreGeneralResponse']['return'];
+            ['ns0:consultarPersonaNroDocResponse']['RespuestaPersona']['descripcionMensaje'];
 
-          if (parseFloat(this.antecedentePolicial) === 0) {
+          /*if (parseFloat(this.antecedentePolicial) === 0) {
             this.antecedentePolicial_result = 'No preseta antecedentes policiales';
             this.imageLoading2 = true;
           } else if (parseFloat(this.antecedentePolicial) === 1) {
             this.antecedentePolicial_result = 'Presenta antecedentes policiales';
+            this.imageLoading2 = false;
+          }*/
+
+          if (this.antecedentePolicial.startsWith('No')) {
+            this.antecedentePolicial_result = 'No presenta antecedentes policiales';
+            this.imageLoading2 = true;
+          } else {
+            this.antecedentePolicial_result = 'Presenta antecedentes Policiales';
             this.imageLoading2 = false;
           }
 

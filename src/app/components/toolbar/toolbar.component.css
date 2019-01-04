@@ -1,10 +1,10 @@
 .brand-image {
-  height: 35px;
+  height: 43px;
   width: auto;
 }
 
 .fond {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .brand-image-lg {
@@ -50,5 +50,10 @@
 
 .btn-primary-white {
   color: #000000;
-  background-color: #FBFAF8;
+  background-color: #ffffff;
+  border-color: #999999;
+}
+
+.label-danger1 {
+  color: #0a0a0a;
 }

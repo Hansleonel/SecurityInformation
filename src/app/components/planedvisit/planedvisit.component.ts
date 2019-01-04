@@ -26,6 +26,7 @@ export class PlanedvisitComponent {
     this.visitaService.getReunionPersonas()
       .subscribe((response: any) => {
         this.items = response;
+        console.log(response);
         this.loadItems();
 
         // const a = this.items[0]['invitado']['id_invitado'];

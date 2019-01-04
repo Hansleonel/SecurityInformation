@@ -398,13 +398,13 @@
             [pageable]="true"
             (pageChange)="pageChange($event)"
             (cellClick)="cellClickHandler($event)"
-
 >
   <kendo-grid-column field="id_reunion_persona" title="VISITA"></kendo-grid-column>
   <kendo-grid-column field="invitado.numeroDocu" title="DOCUMENTO"></kendo-grid-column>
   <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE"></kendo-grid-column>
   <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO"></kendo-grid-column>
   <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO"></kendo-grid-column>
+  <kendo-grid-column field="invitado.antecedenteP" title="ANTECEDENTES"></kendo-grid-column>
   <kendo-grid-column field="reunion.fecha_inicio" title="FECHA CITA"></kendo-grid-column>
   <kendo-grid-column field="reunion.hora_inicio" title="HORA CITA"></kendo-grid-column>
   <kendo-grid-column field="reunion.doc_autoriza" title="DOC. AUTORIZA"></kendo-grid-column>

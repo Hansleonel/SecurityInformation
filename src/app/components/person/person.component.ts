@@ -122,14 +122,20 @@ export class PersonComponent implements OnInit {
             .subscribe((resultado: any) => {
               this.antecedentesFromService = resultado;
               console.log(this.antecedentesFromService['S:Envelope']['S:Body']
-                ['ns0:consultaNombreGeneralResponse']['return']);
+                ['ns0:consultarPersonaNroDocResponse']['RespuestaPersona']['descripcionMensaje']);
               this.antecedentePolicial = this.antecedentesFromService['S:Envelope']['S:Body']
-                ['ns0:consultaNombreGeneralResponse']['return'];
+                ['ns0:consultarPersonaNroDocResponse']['RespuestaPersona']['descripcionMensaje'];
 
-              if (parseFloat(this.antecedentePolicial) === 1) {
+              /*if (parseFloat(this.antecedentePolicial) === 1) {
                 this.antecedentePolicial_result = 'SI Preseta antecedentes policiales';
               } else {
                 this.antecedentePolicial_result = 'NO Presenta antecedentes policiales';
+              }*/
+
+              if (this.antecedentePolicial.startsWith('No')) {
+                this.antecedentePolicial_result = 'NO presenta antecedentes policiales';
+              } else {
+                this.antecedentePolicial_result = 'SI presenta antecedentes policiales';
               }
 
               this.invitado['antecedenteP'] = this.antecedentePolicial_result;
