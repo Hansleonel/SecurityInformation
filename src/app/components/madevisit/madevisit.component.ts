@@ -73,7 +73,8 @@ export class MadevisitComponent {
               private ngZone: NgZone,
               private router: Router) {
 
-    this.visitaService.getVisitas()
+    // this.visitaService.getVisitas()
+    this.visitaService.getVisitasOrder()
       .subscribe((response: any) => {
         this.items = response;
         this.loadItems();

@@ -1,8 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DnipersonaService} from '../../services/dnipersona.service';
 import {DomSanitizer} from '@angular/platform-browser';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {GridDataResult, PageChangeEvent} from '@progress/kendo-angular-grid';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 
 @Component({
@@ -19,6 +24,7 @@ export class SearchComponent implements OnInit {
   apMaterno: string;
   apPaterno: string;
   ubigeoPerson: string;
+  dninumber: string;
 
   loading: boolean;
   informacionLoading: boolean;
@@ -41,10 +47,25 @@ export class SearchComponent implements OnInit {
 
   dateToday = new Date();
 
+  // TODO GRID visitas por DNI
+  public gridView: GridDataResult;
+  public pageSize = 10;
+  public skip = 0;
+  private data: Object[];
+  private items: any[];
+
+  // TODO
+
+  // TODO UPDATE VISITA
+  visita = {};
+
+  // TODO
+
   constructor(private activatedRoute: ActivatedRoute,
               private dnipersonaService: DnipersonaService,
               private domSanitazer: DomSanitizer,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private router: Router) {
 
     this.loading = false;
     this.informacionLoading = false;
@@ -60,9 +81,21 @@ export class SearchComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       console.log(params['dni']);
 
+      this.dninumber = params['dni'];
+
+      // TODO GRID visitas por DNI
+      this.dnipersonaService.getVisitaByDni(this.dninumber)
+        .subscribe((response: any) => {
+          this.items = response;
+          console.log(response);
+          this.loadItems();
+        });
+      // TODO
+
+
       // TODO utilizando un get para la consulta de nombres, direccion, photographia
       // TODO esta consulta deberia de realizarce en un service
-      this.http.get('http://localhost:8080/api/dni/' + params['dni'])
+      this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/dni/' + params['dni'])
         .subscribe((respuesta: any) => {
 
           // TODO almacenando dentro de las varibles creadas en la parte superior
@@ -150,6 +183,52 @@ export class SearchComponent implements OnInit {
     });
 
   }
+
+  editedPerson: string;
+
+  public editHandler({sender, rowIndex, dataItem}) {
+    // this.closeEditor(sender);
+
+    // this.editedRowIndex = rowIndex;
+    this.editedPerson = Object.assign({}, dataItem);
+    const idVisita: string = this.editedPerson['id_visita'];
+    console.log('el id de la visita es' + idVisita);
+
+    // console.log('LA RESPUESTA' + this.editedRowIndex, this.editedPerson);
+    // const indice: string = this.editedPerson['numeroDocu'];
+    this.router.navigate(['/detalleVisita', idVisita]);
+  }
+
+  updateIncidenteVisita(incidencia: string) {
+    console.log(incidencia);
+    this.dnipersonaService.getVisita('308')
+      .subscribe((response: any) => {
+        this.visita = response;
+        console.log(this.visita);
+        this.visita['cargo'] = 'APOYO ADMINISTRATIVO';
+        console.log(this.visita);
+
+        this.http.put('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas', this.visita, httpOptions).subscribe(responsePut => {
+          console.log(responsePut);
+        });
+      });
+
+  }
+
+  // TODO GRID visitas por DNI
+  private loadItems(): void {
+    this.gridView = {
+      data: this.items.slice(this.skip, this.skip + this.pageSize),
+      total: this.items.length
+    };
+  }
+
+  public pageChange(event: PageChangeEvent): void {
+    this.skip = event.skip;
+    this.loadItems();
+  }
+
+  // TODO
 
   ngOnInit() {
 

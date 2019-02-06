@@ -22,6 +22,7 @@ import {SecuritycamComponent} from './components/securitycam/securitycam.compone
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PersonComponent } from './components/person/person.component';
+import { VisitdetailComponent } from './components/visitdetail/visitdetail.component';
 
 
 
@@ -37,7 +38,8 @@ import { PersonComponent } from './components/person/person.component';
     // TODO los PIPES se definen en las declaraciones
     CapitalizadoPipe,
     SecuritycamComponent,
-    PersonComponent
+    PersonComponent,
+    VisitdetailComponent
   ],
   imports: [
     BrowserModule,

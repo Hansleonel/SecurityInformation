@@ -1,3 +1,12 @@
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Busqueda por DNI</a></li>
+      <li class="active">Resultado</li>
+    </ol>
+  </h1>
+</section>
 <div class="row">
   <div class="col-md-4">
     <!-- Widget: user widget style 1 -->
@@ -63,8 +72,8 @@
           <ul class="nav nav-pills nav-stacked">
             <li><a><i class="fa fa-inbox"></i> Tipo de Documento
               <span class="label label-primary pull-right">DNI</span></a></li>
-            <li><a><i class="fa fa-envelope-o"></i> Estado de Documento
-              <span class="label label-primary-y pull-right">Por Confirmar</span></a></li>
+            <li><a><i class="fa fa-envelope-o"></i> Numero de Documento
+              <span class="label label-primary-y pull-right">{{dninumber}}</span></a></li>
             <li><a><i class="fa fa-file-text-o"></i> Ultima Visita
               <span class="label label-primary-y pull-right">16/10/2018</span></a></li>
           </ul>
@@ -74,7 +83,7 @@
       <div class="callout callout-info">
         <h4>Alertas</h4>
 
-        <p><b>Morris.js</b> Alertas de Seguridad</p>
+        <p><b>SIN</b> Alertas </p>
       </div>
     </div>
     <!--<div class="row">
@@ -120,14 +129,14 @@
 </div>
 <div class="nav-tabs-custom">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Perfil Personal</a></li>
-    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial de Visitas</a></li>
-    <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Historial de Cargos</a></li>
+    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="true">Perfil Personal</a></li>
+    <li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial de Visitas</a></li>
+    <!--<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Historial de Cargos</a></li>-->
     <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Antecedentes</a></li>
     <li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Otros</a></li>
 
 
-    <li class="dropdown">
+    <!--<li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
         Dropdown <span class="caret"></span>
       </a>
@@ -138,11 +147,11 @@
         <li role="presentation" class="divider"></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
       </ul>
-    </li>
+    </li>-->
     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="tab_1">
+    <div class="tab-pane" id="tab_1">
       <!--<b>How to use:</b>
 
       <p>Exactly like the original bootstrap tabs except you should use
@@ -159,7 +168,7 @@
       </div>
       <div class="box box-info" *ngIf="informacionLoading">
         <div class="box-header with-border">
-          <h3 class="box-title">Latest Orders</h3>
+          <h3 class="box-title">Perfil Profesional</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -171,7 +180,7 @@
         <div class="box-body" style="">
           <div class="table-responsive">
             <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i> Education</strong>
+              <strong><i class="fa fa-book margin-r-5"></i> Educación</strong>
 
               <p class="text-muted">
                 No es posible consultar sus grados academicos en estos momentos
@@ -179,13 +188,13 @@
 
               <hr>
 
-              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Locación</strong>
 
               <p class="text-muted">{{ubigeoPerson}}</p>
 
               <hr>
 
-              <strong><i class="fa fa-pencil margin-r-5"></i> Skills</strong>
+              <!--<i class="fa fa-pencil margin-r-5"></i> Skills</strong>
 
               <p>
                 <span class="label label-danger">UI Design</span>
@@ -193,37 +202,69 @@
                 <span class="label label-info">Javascript</span>
                 <span class="label label-warning">PHP</span>
                 <span class="label label-primary">Node.js</span>
-              </p>
+              </p>-->
+
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Ultima Incidencia</strong>
+
+              <p>El usuario no tiene incidencias adicionales o es su primera visita al Ministerio</p>
 
               <hr>
 
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Notes</strong>
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Agregar Incidencia</strong>
 
-              <p>El usuario no tiene incidencias adicionales o es su primera visita al Ministerio</p>
+              <td></td>
+
+              <textarea rows="4" cols="80" placeholder="Ingresar Incidencia" #incidencia></textarea>
+
             </div>
           </div>
           <!-- /.table-responsive -->
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix" style="">
-          <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Agregar Nueva Informacion</a>
+          <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left"
+             (click)="updateIncidenteVisita(incidencia.value)">Agregar Nueva
+            Informacion</a>
           <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Actualizar Informacion</a>
         </div>
         <!-- /.box-footer -->
       </div>
     </div>
     <!-- /.tab-pane -->
-    <div class="tab-pane" id="tab_2">
-      The European languages are members of the same family. Their separate existence is a myth.
-      For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-      in their grammar, their pronunciation and their most common words. Everyone realizes why a
-      new common language would be desirable: one could refuse to pay expensive translators. To
-      achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-      words. If several languages coalesce, the grammar of the resulting language is more simple
-      and regular than that of the individual languages.
+    <div class="tab-pane active" id="tab_2">
+      <div class="box box-info">
+        <kendo-grid #grid
+                    [data]="gridView"
+                    [pageSize]="pageSize"
+                    [skip]="skip"
+                    [pageable]="true"
+                    (pageChange)="pageChange($event)"
+                    (edit)="editHandler($event)"
+
+        >
+          <kendo-grid-column field="id_visita" title="VISITA" width="69"></kendo-grid-column>
+          <kendo-grid-column field="cargo" title="CARGO"></kendo-grid-column>
+          <kendo-grid-column field="fechavisita" title="FECHA VISITA" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.numeroDocu" title="NRO. DOCU" width="112"></kendo-grid-column>
+          <kendo-grid-column field="incidenciavisita" title="INCIDENCIA" width="112"></kendo-grid-column>
+          <kendo-grid-command-column title="DETALLE">
+            <ng-template kendoGridCellTemplate let-isNew="isNew">
+              <button kendoGridEditCommand type="button" [primary]="true">DETALLE</button>
+            </ng-template>
+          </kendo-grid-command-column>
+
+        </kendo-grid>
+
+        <hr>
+
+      </div>
     </div>
     <!-- /.tab-pane -->
-    <div class="tab-pane" id="tab_3">
+    <!--<div class="tab-pane" id="tab_3">
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
       Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
       when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -231,7 +272,7 @@
       remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
       sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
       like Aldus PageMaker including versions of Lorem Ipsum.
-    </div>
+    </div>-->
     <div class="tab-pane" id="tab_4">
       <div class="row">
 

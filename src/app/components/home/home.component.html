@@ -1,3 +1,11 @@
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Busqueda por DNI</li>
+    </ol>
+  </h1>
+</section>
 <div class="content padre m-5">
   <!--<div class="container-fluid">
     <img class="m-5 imagenlogo"
@@ -46,11 +54,12 @@
       <!-- /.row -->
     </div>
     <div class="form-group paddng">
-      <input type="text" maxlength="8" class="form-control buttonSearch" placeholder="Ingrese DNI"
+      <input (keyup.enter)="getRuteo(numeroDNI.value)" type="text" maxlength="8" class="form-control buttonSearch"
+             placeholder="Ingrese DNI"
              #numeroDNI>
     </div>
     <div class="form-group paddng padding1">
-      <button (keypress)="getRuteo(numeroDNI.value)" (click)="getRuteo(numeroDNI.value)" type="button"
+      <button (click)="getRuteo(numeroDNI.value)" type="button"
               class="btn btn-block btn-primary colorPersonalize">Buscar Datos
       </button>
     </div>

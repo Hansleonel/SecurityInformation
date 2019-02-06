@@ -140,7 +140,7 @@ export class PersonComponent implements OnInit {
 
               this.invitado['antecedenteP'] = this.antecedentePolicial_result;
 
-              this.http.put('http://localhost:8080/api/invitado', this.invitado, httpOptions).subscribe(responsePut => {
+              this.http.put('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/invitado', this.invitado, httpOptions).subscribe(responsePut => {
                 console.log(responsePut);
               });
 

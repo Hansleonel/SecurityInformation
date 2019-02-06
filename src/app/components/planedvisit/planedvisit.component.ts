@@ -23,7 +23,8 @@ export class PlanedvisitComponent {
               private visitaService: DnipersonaService,
               private router: Router) {
 
-    this.visitaService.getReunionPersonas()
+    // this.visitaService.getReunionPersonas()
+    this.visitaService.getReunionPersonasOrder()
       .subscribe((response: any) => {
         this.items = response;
         console.log(response);

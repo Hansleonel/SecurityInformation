@@ -6,44 +6,65 @@ import {HttpClient} from '@angular/common/http';
 })
 export class DnipersonaService {
 
+  directioncalidad: string;
+
   constructor(private http: HttpClient) {
+
+
+    this.directioncalidad = 'http://10.24.9.30:8080/mindef-starter-0.0.1-SNAPSHOT/api/';
   }
 
   getVisitas() {
-    return this.http.get('http://localhost:8080/api/visitas');
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas');
+  }
+
+  getVisita(idVisista: string) {
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas/${idVisista}`);
+  }
+
+  getVisitasOrder() {
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitasOrder?page=0&size=100');
   }
 
   getReunionPersonas() {
-    return this.http.get('http://localhost:8080/api/reunionPersona');
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/reunionPersona');
+  }
+
+  getReunionPersonasOrder() {
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/reunionPersonaOrder');
   }
 
   getDatosDni(numeroDniHome: string) {
-    return this.http.get(`http://localhost:8080/api/dni/${numeroDniHome}`);
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/dni/${numeroDniHome}`);
   }
 
   getAntecedentesPenales(numeroDniSearch: string) {
-    return this.http.get(`http://localhost:8080/api/antecedentesPenales/${numeroDniSearch}`);
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/antecedentesPenales/${numeroDniSearch}`);
 
   }
 
   getAntecedentesPoliciales(numeroDniSearch: string) {
-    return this.http.get(`http://localhost:8080/api/antecedentesPoliciales/${numeroDniSearch}`);
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/antecedentesPoliciales/${numeroDniSearch}`);
   }
 
   getAntecedentesJudiciales(numeroDniSearch: string) {
-    return this.http.get(`http://localhost:8080/api/antecedentesJudiciales/${numeroDniSearch}`);
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/antecedentesJudiciales/${numeroDniSearch}`);
   }
 
   getPersonas() {
-    return this.http.get('http://localhost:8080/api/invitado');
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/invitado?page=0&size=100');
   }
 
   getPersona(numeroDniSearch: string) {
-    return this.http.get(`http://localhost:8080/api/invitado/${numeroDniSearch}`);
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/invitado/${numeroDniSearch}`);
   }
 
   getPersonasOrder() {
-    return this.http.get(`http://localhost:8080/api/invitadoOrder?page=0&size=100`);
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/invitadoOrder?page=0&size=100`);
+  }
+
+  getVisitaByDni(dniNumero: string) {
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/VisitaDni/${dniNumero}`);
   }
 
   /*updateInvitado() {

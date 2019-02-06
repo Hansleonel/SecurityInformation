@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DnipersonaService} from '../../services/dnipersona.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +11,17 @@ export class HomeComponent implements OnInit {
 
   datosEncontradosDniPersona = {};
 
-  constructor(private dniPersonaService: DnipersonaService,
+  constructor(private activatedRoute: ActivatedRoute,
+              private dniPersonaService: DnipersonaService,
               private router: Router) {
+
+    this.activatedRoute.queryParams.subscribe(queryparams => {
+      console.log(queryparams['grupo']);
+      console.log(queryparams['accion']);
+      console.log(queryparams['usucod']);
+      console.log(queryparams['uid']);
+    });
+
   }
 
   ngOnInit() {
