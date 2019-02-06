@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="/src/assets/bower_components/Ionicons/css/ionicons.min.css">
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Visitas</a></li>
+      <li class="active">Detalle Visitas</li>
+    </ol>
+  </h1>
+</section>
+
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Detalle Visita</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form role="form">
+    <div class="box-body">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-3">
+            <label>ID Visita</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{idVisita}}" #id>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Fecha Visita</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{fechaVisita}}">
+          </div>
+          <div class="col-xs-6">
+            <label>Hora Ingreso</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{horaingreso}}">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Documento Visitante</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{documentoVisitante}}">
+          </div>
+          <div class="col-xs-6">
+            <label>Motivo</label>
+            <input disabled type="text" class="form-control" placeholder="">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Nombre Completo</label>
+        <input disabled="" type="text" class="form-control" placeholder="" value="{{nombreCompleto}}">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Cargo</label>
+        <input disabled type="text" class="form-control" id="exampleInputPassword1" placeholder=""
+               value="{{cargo}}">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Incidencia</label>
+        <textarea class="col-xs-12" rows="6" placeholder="Ingresar Incidencia" #Incidencia>{{incidencia}}</textarea>
+      </div>
+    </div>
+    <!-- /.box-body -->
+
+    <div class="box-footer">
+      <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left col-xs-4"
+         (click)="updateIncidencia(Incidencia.value, id.value)">Agregar Nueva
+        Incidencia</a>
+      <a class="col-xs-4"></a>
+      <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-left col-xs-4"
+         (click)="volvr(documentoVisitante)">Regresar</a>
+    </div>
+
+    <div class="alert alert-success alert-dismissible" *ngIf="completado===1">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h4><i class="icon fa fa-check"></i> Registrado </h4>
+      Se registro la incidencia con exito
+    </div>
+
+  </form>
+
+</div>
