@@ -12,8 +12,17 @@ export class NavbarComponent implements OnInit {
   statusClass2 = false;
   statusClass3 = false;
   statusClass4 = false;
+  permisos = localStorage.getItem('PERMISOLOCALSTORAGE');
+
+  verArea1 = false;
+  verAntecedentesSearch = false;
 
   constructor() {
+    if (this.permisos === '299') {
+      this.verArea1 = true;
+      this.verAntecedentesSearch = true;
+    }
+
   }
 
   ngOnInit() {

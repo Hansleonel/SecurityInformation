@@ -16,10 +16,23 @@ export class HomeComponent implements OnInit {
               private router: Router) {
 
     this.activatedRoute.queryParams.subscribe(queryparams => {
+      console.log('queryparams desde el constructor de home.component.ts');
       console.log(queryparams['grupo']);
       console.log(queryparams['accion']);
       console.log(queryparams['usucod']);
       console.log(queryparams['uid']);
+
+      if (queryparams['grupo']) {
+        localStorage.setItem('grupoLocalStorage', String(queryparams['grupo']));
+        localStorage.setItem('accionLocalStorage', String(queryparams['accion']));
+        localStorage.setItem('usucodLocalStorage', String(queryparams['usucod']));
+        localStorage.setItem('uidLocalStorage', String(queryparams['uid']));
+      }
+      console.log('el grupo ' + localStorage.getItem('grupoLocalStorage'));
+      console.log('el accion ' + localStorage.getItem('grupoLocalStorage'));
+      console.log('el usucod ' + localStorage.getItem('grupoLocalStorage'));
+      console.log('el uid ' + localStorage.getItem('grupoLocalStorage'));
+
     });
 
   }

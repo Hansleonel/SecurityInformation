@@ -130,7 +130,8 @@
 <div class="nav-tabs-custom">
   <ul class="nav nav-tabs">
     <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="true">Perfil Personal</a></li>
-    <li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial de Visitas</a></li>
+    <li class="active" *ngIf="verAntecedentesSearch"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial
+      de Visitas</a></li>
     <!--<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Historial de Cargos</a></li>-->
     <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Antecedentes</a></li>
     <li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Otros</a></li>
@@ -232,7 +233,7 @@
       </div>
     </div>
     <!-- /.tab-pane -->
-    <div class="tab-pane active" id="tab_2">
+    <div class="tab-pane active" id="tab_2" *ngIf="verAntecedentesSearch">
       <div class="box box-info">
         <kendo-grid #grid
                     [data]="gridView"

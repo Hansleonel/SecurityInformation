@@ -1,4 +1,5 @@
-<div class="sidebar-mini sidebar-open skin-red">
+<div class="sidebar-mini sidebar-open skin-red" *ngIf="verPage">
+  <!--<div class="sidebar-mini sidebar-open skin-red">-->
   <app-toolbar></app-toolbar>
   <app-navbar></app-navbar>
   <div class="content-wrapper">
@@ -9,3 +10,35 @@
     </section>
   </div>
 </div>
+<!--<section class="content" *ngIf="!verPage">-->
+<section class="content" *ngIf="!verPage">
+
+  <div class="error-page">
+    <h2 class="headline text-black">500</h2>
+
+    <div class="error-content">
+      <h3><i class="fa fa-warning text-red"></i> Oops! algo fallo.</h3>
+
+      <p>
+        Verifica tus credenciales desde la Intranet <a
+        href="http://intranet.mindef.gob.peru/SitePages/Aplicaciones.aspx">regresar a aplicaciones</a> o intenta volver
+        a buscar
+      </p>
+
+      <form class="search-form">
+        <div class="input-group" href="http://intranet.mindef.gob.peru/SitePages/Aplicaciones.aspx">
+          <input type="text" name="search" class="form-control" placeholder="Search">
+
+          <div class="input-group-btn">
+            <button class="btn btn-danger btn-flat" href="http://intranet.mindef.gob.peru/SitePages/Aplicaciones.aspx">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.input-group -->
+      </form>
+    </div>
+  </div>
+  <!-- /.error-page -->
+
+</section>

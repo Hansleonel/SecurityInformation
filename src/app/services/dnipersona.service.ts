@@ -18,6 +18,10 @@ export class DnipersonaService {
     return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas');
   }
 
+  getPermisos(coduser, codapli, tokenuser) {
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/empleadoMindefPermisos/${coduser}/${codapli}/${tokenuser}`);
+  }
+
   getVisita(idVisista: string) {
     return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas/${idVisista}`);
   }
@@ -65,6 +69,10 @@ export class DnipersonaService {
 
   getVisitaByDni(dniNumero: string) {
     return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/VisitaDni/${dniNumero}`);
+  }
+
+  getDatosByUser(usercod: string) {
+    return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/empleadoMindefDatos/${usercod}`);
   }
 
   /*updateInvitado() {

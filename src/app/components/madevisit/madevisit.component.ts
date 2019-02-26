@@ -73,6 +73,8 @@ export class MadevisitComponent {
               private ngZone: NgZone,
               private router: Router) {
 
+    console.log('el grupo desde madevisit.component.ts ' + localStorage.getItem('grupo4'));
+
     // this.visitaService.getVisitas()
     this.visitaService.getVisitasOrder()
       .subscribe((response: any) => {

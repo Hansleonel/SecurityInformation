@@ -61,11 +61,20 @@ export class SearchComponent implements OnInit {
 
   // TODO
 
+  permisos = localStorage.getItem('PERMISOLOCALSTORAGE');
+
+  verArea1 = false;
+  verAntecedentesSearch = false;
+
   constructor(private activatedRoute: ActivatedRoute,
               private dnipersonaService: DnipersonaService,
               private domSanitazer: DomSanitizer,
               private http: HttpClient,
               private router: Router) {
+
+    if (this.permisos === '301' || this.permisos === '299') {
+      this.verAntecedentesSearch = true;
+    }
 
     this.loading = false;
     this.informacionLoading = false;
@@ -88,6 +97,7 @@ export class SearchComponent implements OnInit {
         .subscribe((response: any) => {
           this.items = response;
           console.log(response);
+          // console.log(this.items.length);
           this.loadItems();
         });
       // TODO
