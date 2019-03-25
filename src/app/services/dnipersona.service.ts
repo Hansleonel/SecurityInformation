@@ -9,8 +9,6 @@ export class DnipersonaService {
   directioncalidad: string;
 
   constructor(private http: HttpClient) {
-
-
     this.directioncalidad = 'http://10.24.9.30:8080/mindef-starter-0.0.1-SNAPSHOT/api/';
   }
 
@@ -31,11 +29,11 @@ export class DnipersonaService {
   }
 
   getReunionPersonas() {
-    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/reunionPersona');
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/reunionPersona?page=0&size=100');
   }
 
   getReunionPersonasOrder() {
-    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/reunionPersonaOrder');
+    return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/reunionPersonaOrder?page=0&size=100');
   }
 
   getDatosDni(numeroDniHome: string) {

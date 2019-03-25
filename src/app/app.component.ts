@@ -28,8 +28,10 @@ export class AppComponent implements OnInit, OnDestroy {
         this.grupouser = queryparams['grupo'];
         this.servicePermiso.getPermisos(this.usucod, this.grupouser, this.uiduser).subscribe(response => {
           this.permiso = response['VALOR'];
+          // this.permiso = '299';
           console.log('EL PERMISO ENCONTRADO EN APP.COMPONENT.TS ' + this.permiso);
           localStorage.setItem('PERMISOLOCALSTORAGE', this.permiso);
+          // localStorage.setItem('PERMISOLOCALSTORAGE', '299');
           if (this.permiso === '299' || this.permiso === '300') {
             this.verPage = true;
           }

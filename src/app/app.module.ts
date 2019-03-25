@@ -19,11 +19,13 @@ import {CapitalizadoPipe} from './pipes/capitalizado.pipe';
 import {SecuritycamComponent} from './components/securitycam/securitycam.component';
 
 // import {GridModule} from '@syncfusion/ej2-angular-grids';
-import { GridModule } from '@progress/kendo-angular-grid';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PersonComponent } from './components/person/person.component';
-import { VisitdetailComponent } from './components/visitdetail/visitdetail.component';
-
+import {GridModule} from '@progress/kendo-angular-grid';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PersonComponent} from './components/person/person.component';
+import {VisitdetailComponent} from './components/visitdetail/visitdetail.component';
+import {SelectionpideComponent} from './components/selectionpide/selectionpide.component';
+import {NavbargeneralComponent} from './components/navbargeneral/navbargeneral.component';
+import {Sbn01Component} from './components/pidecomponents/sbn/sbn01/sbn01.component';
 
 
 @NgModule({
@@ -39,7 +41,10 @@ import { VisitdetailComponent } from './components/visitdetail/visitdetail.compo
     CapitalizadoPipe,
     SecuritycamComponent,
     PersonComponent,
-    VisitdetailComponent
+    VisitdetailComponent,
+    SelectionpideComponent,
+    NavbargeneralComponent,
+    Sbn01Component
   ],
   imports: [
     BrowserModule,

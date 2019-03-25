@@ -44,6 +44,7 @@
     </ol>
   </h1>
 </section>
+
 <kendo-grid #grid
             [data]="gridView"
             [pageSize]="pageSize"
@@ -51,7 +52,6 @@
             [pageable]="true"
             (pageChange)="pageChange($event)"
             (cellClick)="cellClickHandler($event)"
-
 >
   <kendo-grid-column field="id_visita" title="VISITA" width="69"></kendo-grid-column>
   <kendo-grid-column field="invitado.numeroDocu" title="DOCUMENTO" width="128"></kendo-grid-column>
