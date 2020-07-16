@@ -95,7 +95,7 @@ export class PersonComponent implements OnInit {
   public cellClickHandler({sender, rowIndex, columnIndex, dataItem}) {
     console.log(dataItem['numeroDocu']);
     const id = dataItem['id_invitado'];
-    this.updatePersona(id);
+    // this.updatePersona(id);
   }
 
   public editHandler({sender, rowIndex, dataItem}) {
@@ -140,7 +140,8 @@ export class PersonComponent implements OnInit {
 
               this.invitado['antecedenteP'] = this.antecedentePolicial_result;
 
-              this.http.put('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/invitado', this.invitado, httpOptions).subscribe(responsePut => {
+              this.http.put('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/invitado',
+                this.invitado, httpOptions).subscribe(responsePut => {
                 console.log(responsePut);
               });
 

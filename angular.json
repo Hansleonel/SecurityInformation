@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Proy01": {
+    "SISCOM": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Proy01",
+            "outputPath": "dist/SISCOM",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -53,18 +53,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Proy01:build"
+            "browserTarget": "SISCOM:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Proy01:build:production"
+              "browserTarget": "SISCOM:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Proy01:build"
+            "browserTarget": "SISCOM:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "Proy01-e2e": {
+    "SISCOM-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Proy01:serve"
+            "devServerTarget": "SISCOM:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Proy01:serve:production"
+              "devServerTarget": "SISCOM:serve:production"
             }
           }
         },
@@ -129,5 +129,5 @@
       }
     }
   },
-  "defaultProject": "Proy01"
+  "defaultProject": "SISCOM"
 }

@@ -1,0 +1,69 @@
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Busqueda Personal</li>
+    </ol>
+  </h1>
+</section>
+<div class="content padre m-5">
+  <!--<div class="container-fluid">
+    <img class="m-5 imagenlogo"
+         src="/src/assets/dist/img/logo.svg">
+  </div>-->
+
+
+  <div class="box box-widget widget-user">
+    <!-- Add the bg color to the header using any of the bg-* classes -->
+    <div class="widget-user-header bg-success colorPersonalize">
+      <h3 class="widget-user-username" style="color: white">Sistema de Control y Monitoreo de Seguridad</h3>
+      <h5 class="widget-user-desc" style="color: white">DNI &amp; RUC</h5>
+    </div>
+    <div class="widget-user-image marginbttm">
+      <img class="img-circle" src="/src/assets/dist/img/logo.svg" alt="User Avatar">
+    </div>
+
+    <br>
+    <br>
+    <div class="box-footer">
+      <div class="row">
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header"></h5>
+            <span class="description-text"></span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 border-right">
+          <div class="description-block">
+            <h5 class="description-header">Busqueda de Personal y sus movimientos</h5>
+            <span class="description-text">MINDEF</span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4">
+          <div class="description-block">
+            <h5 class="description-header"></h5>
+            <span class="description-text"></span>
+          </div>
+          <!-- /.description-block -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <div class="form-group paddng">
+      <input (keyup.enter)="getRuteoPersonal(numeroDNI.value)" type="text" maxlength="8"
+             class="form-control buttonSearch"
+             placeholder="Ingrese DNI"
+             #numeroDNI>
+    </div>
+    <div class="form-group paddng padding1">
+      <button (click)="getRuteoPersonal(numeroDNI.value)" type="button"
+              class="btn btn-block btn-success colorPersonalize">Buscar Datos
+      </button>
+    </div>
+  </div>
+</div>

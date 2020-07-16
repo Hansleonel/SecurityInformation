@@ -26,7 +26,9 @@ import {VisitdetailComponent} from './components/visitdetail/visitdetail.compone
 import {SelectionpideComponent} from './components/selectionpide/selectionpide.component';
 import {NavbargeneralComponent} from './components/navbargeneral/navbargeneral.component';
 import {Sbn01Component} from './components/pidecomponents/sbn/sbn01/sbn01.component';
-
+import {MovimientoComponent} from './components/movimiento/movimiento.component';
+import {SearchmovimientoComponent} from './components/searchmovimiento/searchmovimiento.component';
+import {MovimientopersonaldetailComponent} from './components/movimientopersonaldetail/movimientopersonaldetail.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,10 @@ import {Sbn01Component} from './components/pidecomponents/sbn/sbn01/sbn01.compon
     VisitdetailComponent,
     SelectionpideComponent,
     NavbargeneralComponent,
-    Sbn01Component
+    Sbn01Component,
+    MovimientoComponent,
+    SearchmovimientoComponent,
+    MovimientopersonaldetailComponent
   ],
   imports: [
     BrowserModule,

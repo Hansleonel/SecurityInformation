@@ -8,11 +8,17 @@ import {PersonComponent} from './components/person/person.component';
 import {VisitdetailComponent} from './components/visitdetail/visitdetail.component';
 import {SelectionpideComponent} from './components/selectionpide/selectionpide.component';
 import {Sbn01Component} from './components/pidecomponents/sbn/sbn01/sbn01.component';
+import {MovimientoComponent} from './components/movimiento/movimiento.component';
+import {SearchmovimientoComponent} from './components/searchmovimiento/searchmovimiento.component';
+import {MovimientopersonaldetailComponent} from './components/movimientopersonaldetail/movimientopersonaldetail.component';
 
 const APP_ROUTES: Routes = [
   {path: 'selectionPIDE', component: SelectionpideComponent},
   {path: 'home', component: HomeComponent},
   {path: 'search/:dni', component: SearchComponent},
+  {path: 'movimiento', component: MovimientoComponent},
+  {path: 'detalleMovimientoPersonal/:idRegistro', component: MovimientopersonaldetailComponent},
+  {path: 'searchMovimiento/:dni', component: SearchmovimientoComponent},
   {path: 'visitasRealizadas', component: MadevisitComponent},
   {path: 'visitasProgramadas', component: PlanedvisitComponent},
   {path: 'detalleVisita/:idvisita', component: VisitdetailComponent},

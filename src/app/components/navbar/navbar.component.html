@@ -28,7 +28,7 @@
       <li class="header">MAIN NAVIGATION</li>
       <li class="active treeview menu-open">
         <a href="#">
-          <i class="fa fa-dashboard"></i> <span>Plataforma PIDE</span>
+          <i class="fa fa-dashboard"></i> <span>Consultas</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -36,6 +36,8 @@
         <ul class="treeview-menu">
           <li class="inactive" (click)="eventoClick()" [ngClass]="statusClass1 ? 'active': 'inactive'"><a
             routerLink="home" routerLinkActive="activate"><i class="fa fa-circle-o"></i> Busqueda por DNI</a></li>
+          <!-- <li class="inactive" (click)="eventoPersonal()" [ngClass]="statusClassPersona ? 'active': 'inactive'"><a
+            routerLink="movimiento" routerLinkActive="activate"><i class="fa fa-circle-o"></i> Personal y movimiento</a></li> -->
           <!--<li><a routerLink="search/46879150" routerLinkActive="activate"><i class="fa fa-circle-o"></i> Perfil por
             Usuario</a></li>-->
         </ul>

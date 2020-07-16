@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +13,33 @@ export class DnipersonaService {
     this.directioncalidad = 'http://10.24.9.30:8080/mindef-starter-0.0.1-SNAPSHOT/api/';
   }
 
+  getMovimientosPersona(dni: string) {
+    return this.http.get(`${environment.API_SISCOM}/movimientoPersonaDni/${dni}`);
+  }
+
+  getMovimientos(dni: string) {
+    return this.http.get(`${environment.API_SISCOM}/movimientoDni/${dni}`);
+  }
+
+  getMovimiento(idMovimiento: string) {
+    return this.http.get(`${environment.API_SISCOM}/movimiento/${idMovimiento}`);
+  }
+
   getVisitas() {
     return this.http.get('http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas');
   }
 
   getPermisos(coduser, codapli, tokenuser) {
+    console.log(coduser, codapli, tokenuser);
     return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/empleadoMindefPermisos/${coduser}/${codapli}/${tokenuser}`);
   }
 
   getVisita(idVisista: string) {
     return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/visitas/${idVisista}`);
+  }
+
+  getVisitaCalidad(idVisista: string) {
+    return this.http.get(`${environment.API_SISCOM}/visitas/${idVisista}`);
   }
 
   getVisitasOrder() {
@@ -42,7 +60,6 @@ export class DnipersonaService {
 
   getAntecedentesPenales(numeroDniSearch: string) {
     return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/antecedentesPenales/${numeroDniSearch}`);
-
   }
 
   getAntecedentesPoliciales(numeroDniSearch: string) {
@@ -71,6 +88,14 @@ export class DnipersonaService {
 
   getDatosByUser(usercod: string) {
     return this.http.get(`http://10.24.9.78/mindef-starter-0.0.1-SNAPSHOT/api/empleadoMindefDatos/${usercod}`);
+  }
+
+  getDateToken() {
+    return this.http.get('http://localhost:8080/api/getTokenSBN/1');
+  }
+
+  putIncidenciaMovimiento(movimiento, httpOptions) {
+    return this.http.put(`${environment.API_SISCOM}/movimiento`, movimiento, httpOptions);
   }
 
   /*updateInvitado() {

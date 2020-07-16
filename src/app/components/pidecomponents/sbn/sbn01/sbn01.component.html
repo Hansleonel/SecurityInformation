@@ -8,7 +8,7 @@
     <!-- Add the bg color to the header using any of the bg-* classes -->
     <div class="widget-user-header bg-aqua-active colorPersonalize">
       <h3 class="widget-user-username">PIDE SBN</h3>
-      <h5 class="widget-user-desc">DNI &amp; RUC</h5>
+      <h5 class="widget-user-desc">IDGRUPO &amp; RUC</h5>
     </div>
     <div class="widget-user-image marginbttm">
       <img class="img-circle" src="/src/assets/dist/img/sbnLogo.png" alt="User Avatar">
@@ -17,21 +17,68 @@
     <br>
     <br>
 
-    <div class="form-group paddng2 marginbttm col-xs-6">
-      <input type="text" maxlength="8" class="form-control buttonSearch"
-             placeholder="Ingrese IDGRUPO"
-             #numeroDNI>
+    <div class="form-group pd01 pd02 marginbttm">
+      <label>BIENES INMBUEBLES SINABIP</label>
+      <select class="form-control">
+        <option>DATOS DEL INMBUEBLE</option>
+        <option>option 2</option>
+        <option>option 3</option>
+        <option>option 4</option>
+        <option>option 5</option>
+      </select>
     </div>
 
-    <div class="form-group paddng marginbttm col-xs-6">
+    <div class="form-group pd01 pd02 marginbttm">
       <input type="text" maxlength="8" class="form-control buttonSearch"
-             placeholder="Ingrese IDCLASE"
-             #numeroDNI>
+             placeholder="INGRESE EL CODIGO CUS"
+             #codigoCUS>
     </div>
-    <div class="form-group paddng padding1">
-      <button type="button"
-              class="btn btn-block btn-primary colorPersonalize">Buscar Datos
+
+    <!--<div class="form-group pd02 marginbttm col-xs-6">
+      <input type="text" maxlength="8" class="form-control buttonSearch"
+             placeholder="IDCLASE"
+             #numeroDNI>
+    </div>-->
+
+    <div class="form-group pd01 pd02 padding1">
+      <button (click)="buscarDatosInmueble(codigoCUS.value)"
+              type="button"
+              class="btn btn-block btn-primary colorPersonalize">BUSCAR DATOS
       </button>
     </div>
   </div>
+
+  <div class="box box-info">
+    <kendo-grid #grid
+                [data]="gridView"
+                [pageSize]="pageSize"
+                [skip]="skip"
+                [pageable]="true"
+                (pageChange)="pageChange($event)"
+                (edit)="editHandler($event)"
+
+    >
+      <kendo-grid-column
+        field="Descripcion"
+        title="DESCRIP"></kendo-grid-column>
+      <kendo-grid-column field="cargo" title="CARGO"></kendo-grid-column>
+      <kendo-grid-column field="fechavisita" title="FECHA VISITA" width="112"></kendo-grid-column>
+      <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE" width="112"></kendo-grid-column>
+      <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO" width="112"></kendo-grid-column>
+      <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO" width="112"></kendo-grid-column>
+      <kendo-grid-column field="invitado.numeroDocu" title="NRO. DOCU" width="112"></kendo-grid-column>
+      <kendo-grid-column field="incidenciavisita" title="INCIDENCIA" width="112"></kendo-grid-column>
+      <kendo-grid-command-column title="DETALLE">
+        <ng-template kendoGridCellTemplate let-isNew="isNew">
+          <button kendoGridEditCommand type="button" [primary]="true">DETALLE</button>
+        </ng-template>
+      </kendo-grid-command-column>
+
+    </kendo-grid>
+
+    <hr>
+
+  </div>
+
+
 </div>

@@ -1,0 +1,330 @@
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Busqueda por DNI de Personal Mindef</a></li>
+      <li class="active">Resultado</li>
+    </ol>
+  </h1>
+</section>
+<div class="row">
+  <div class="col-md-4">
+    <!-- Widget: user widget style 1 -->
+    <div class="box box-widget widget-user">
+      <!-- Add the bg color to the header using any of the bg-* classes -->
+      <div class="overlay" *ngIf="!loading">
+        <i class="fa fa-refresh fa-spin"></i>
+      </div>
+      <div class="widget-user-header bg-aqua-active" *ngIf="loading">
+        <h3 class="widget-user-username">{{(nombresPerson+" "+apPaterno+" "+apMaterno)|capitalizado}}</h3>
+        <h5 class="widget-user-desc">{{directionPerson | lowercase}}</h5>
+      </div>
+      <div class="widget-user-image">
+        <img class="img-circle" [src]="imagePathPerson" alt="User Avatar">
+      </div>
+      <br>
+      <br>
+      <div class="box-footer">
+        <div class="row">
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <h5 class="description-header"><i class="fa fa-phone"></i></h5>
+              <span class="description-text">TELEFONO</span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4 border-right">
+            <div class="description-block">
+              <h5 class="description-header"><i class="fa fa-envelope-o"></i></h5>
+              <span class="description-text">MAIL</span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+          <div class="col-sm-4">
+            <div class="description-block">
+              <h5 class="description-header"><i class="fa fa-whatsapp"></i></h5>
+              <span class="description-text">REDES</span>
+            </div>
+            <!-- /.description-block -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+    </div>
+    <!-- /.widget-user -->
+  </div>
+
+  <div class="col-xs-8">
+    <div class="row">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">Documento</h3>
+
+          <div class="box-tools">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body no-padding">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a><i class="fa fa-inbox"></i> Tipo de Documento
+              <span class="label label-primary pull-right">DNI</span></a></li>
+            <li><a><i class="fa fa-envelope-o"></i> Numero de Documento
+              <span class="label label-primary-y pull-right">{{dninumber}}</span></a></li>
+            <li><a><i class="fa fa-file-text-o"></i> Ultima Visita
+              <span class="label label-primary-y pull-right">16/10/2018</span></a></li>
+          </ul>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <div class="callout callout-info">
+        <h4>Alertas</h4>
+
+        <p><b>SIN</b> Alertas </p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div class="nav-tabs-custom">
+  <ul class="nav nav-tabs">
+    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="true">Perfil Personal</a></li>
+    <li class="active" *ngIf="verAntecedentesSearch"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial
+      <!--<li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial-->
+      de Visitas</a></li>
+    <!--<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Historial de Cargos</a></li>-->
+    <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Antecedentes</a></li>
+    <li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Otros</a></li>
+
+    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane" id="tab_1">
+
+
+      <div class="overlay" *ngIf="!informacionLoading">
+        <i class="fa fa-refresh fa-spin"></i>
+      </div>
+      <div class="box box-info" *ngIf="informacionLoading">
+        <div class="box-header with-border">
+          <h3 class="box-title">Perfil Profesional</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style="">
+          <div class="table-responsive">
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i> Educación</strong>
+
+              <p class="text-muted">
+                No es posible consultar sus grados academicos en estos momentos
+              </p>
+
+              <hr>
+
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Locación</strong>
+
+              <p class="text-muted">{{ubigeoPerson}}</p>
+
+              <hr>
+
+
+              <strong><i class="fa fa-file-text-o margin-r-5"></i> Ultima Incidencia</strong>
+
+              <p>{{incidenciaVisita}}</p>
+
+
+            </div>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+
+      </div>
+    </div>
+    <!-- /.tab-pane -->
+    <div class="tab-pane active" id="tab_2" *ngIf="verAntecedentesSearch">
+      <!--<div class="tab-pane active" id="tab_2">-->
+
+      <div class="box box-info">
+        <kendo-grid #grid
+                    [data]="gridView"
+                    [pageSize]="pageSize"
+                    [skip]="skip"
+                    [pageable]="true"
+                    (pageChange)="pageChange($event)"
+                    (edit)="editHandler($event)"
+
+        >
+          <kendo-grid-column field="id_visita" title="VISITA" width="69"></kendo-grid-column>
+          <kendo-grid-column field="cargo" title="CARGO"></kendo-grid-column>
+          <kendo-grid-column field="fechavisita" title="FECHA VISITA" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="invitado.numeroDocu" title="NRO. DOCU" width="112"></kendo-grid-column>
+          <kendo-grid-column field="incidenciavisita" title="INCIDENCIA" width="112"></kendo-grid-column>
+          <kendo-grid-command-column title="DETALLE">
+            <ng-template kendoGridCellTemplate let-isNew="isNew">
+              <button kendoGridEditCommand type="button" [primary]="true">DETALLE</button>
+            </ng-template>
+          </kendo-grid-command-column>
+
+        </kendo-grid>
+
+        <hr>
+
+      </div>
+    </div>
+
+    <div class="tab-pane" id="tab_4">
+      <div class="row">
+        <!-- /.col -->
+
+        <!-- TODO Columna con personalizacion para chat -->
+
+        <!-- /.col -->
+
+        <div class="col-md-4">
+          <!-- DIRECT CHAT -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Penales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="overlay" *ngIf="!apLoading">
+              <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body" *ngIf="apLoading">
+              <ul class="clearfix">
+                <br>
+                <div class="no-padding1" *ngIf="imageLoading"><img class="img-circle"
+                                                                   src="/src/assets/dist/img/exito.png"
+                                                                   alt="User Image"></div>
+                <div class="no-padding1" *ngIf="!imageLoading"><img class="img-circle"
+                                                                    src="/src/assets/dist/img/exito4.png"
+                                                                    alt="User Image"></div>
+                <a class="users-list-name no-padding">{{antecedentePenal}}</a>
+                <span class="users-list-date no-padding1">Ultima Actualizacion</span>
+                <span class="users-list-date no-padding1">{{dateToday | date:'short'}}</span>
+              </ul>
+              <!-- /.users-list -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">Actualizar</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+        <div class="col-md-4">
+          <!-- DIRECT CHAT -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Policiales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="overlay" *ngIf="!apLoading2">
+              <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body" *ngIf="apLoading2">
+              <ul class="clearfix">
+                <br>
+                <div class="no-padding1" *ngIf="imageLoading2"><img class="img-circle"
+                                                                    src="/src/assets/dist/img/exito.png"
+                                                                    alt="User Image"></div>
+                <div class="no-padding1" *ngIf="!imageLoading2"><img class="img-circle"
+                                                                     src="/src/assets/dist/img/exito4.png"
+                                                                     alt="User Image"></div>
+                <a class="users-list-name no-padding">{{antecedentePolicial_result}}</a>
+                <span class="users-list-date no-padding1">Ultima Actualizacion :</span>
+                <span class="users-list-date no-padding1">{{dateToday | date:'short'}}</span>
+
+              </ul>
+              <!-- /.users-list -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">Actualizar</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+        <div class="col-md-4">
+          <!-- DIRECT CHAT -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">A. Judiciales</h3>
+
+              <div class="box-tools pull-right">
+                <span class="label label-danger">8 Consultas</span>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="overlay" *ngIf="!apLoading3">
+              <i class="fa fa-refresh fa-spin"></i>
+            </div>
+            <div class="box-body" *ngIf="apLoading3">
+              <ul class="clearfix">
+                <br>
+                <div class="no-padding1" *ngIf="imageLoading3"><img class="img-circle"
+                                                                    src="/src/assets/dist/img/exito.png"
+                                                                    alt="User Image"></div>
+                <div class="no-padding1" *ngIf="!imageLoading3"><img class="img-circle"
+                                                                     src="/src/assets/dist/img/exito4.png"
+                                                                     alt="User Image"></div>
+                <a class="users-list-name no-padding">{{antecedenteJudicial}}</a>
+                <span class="users-list-date no-padding1">Ultima Actualizacion</span>
+                <span class="users-list-date no-padding1">{{dateToday | date:'short'}}</span>
+              </ul>
+              <!-- /.users-list -->
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer text-center">
+              <a href="javascript:void(0)" class="uppercase">Actualizar</a>
+            </div>
+            <!-- /.box-footer -->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tab-pane" id="tab_5">
+
+    </div>
+    <!-- /.tab-pane -->
+  </div>
+  <!-- /.tab-content -->
+</div>

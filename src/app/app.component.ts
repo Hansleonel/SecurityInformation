@@ -8,7 +8,7 @@ import {DnipersonaService} from './services/dnipersona.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'Proy01';
+  title = 'SISCOM';
   verPage = false;
   usucod;
   uiduser;
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private activatedRoute: ActivatedRoute,
               private servicePermiso: DnipersonaService) {
 
-
     this.activatedRoute.queryParams.subscribe(queryparams => {
       if (queryparams['usucod'] && queryparams['uid'] && queryparams['grupo'] || localStorage.getItem('accionLocalStorage')) {
         // this.verPage = true;
@@ -28,16 +27,35 @@ export class AppComponent implements OnInit, OnDestroy {
         this.grupouser = queryparams['grupo'];
         this.servicePermiso.getPermisos(this.usucod, this.grupouser, this.uiduser).subscribe(response => {
           this.permiso = response['VALOR'];
-          // this.permiso = '299';
+          this.permiso = '299';
           console.log('EL PERMISO ENCONTRADO EN APP.COMPONENT.TS ' + this.permiso);
           localStorage.setItem('PERMISOLOCALSTORAGE', this.permiso);
-          // localStorage.setItem('PERMISOLOCALSTORAGE', '299');
+          // localStorage.setng build --prod --base-href ./Item('PERMISOLOCALSTORAGE', '299');
           if (this.permiso === '299' || this.permiso === '300') {
+            console.log('ENTRO CON EL PERMISO LOCALSTORAGE' + localStorage.getItem('PERMISOLOCALSTORAGE'));
             this.verPage = true;
           }
         });
       }
+      /* this.servicePermiso.getPermisos(localStorage.getItem('usucodLocalStorage'), localStorage.getItem('grupoLocalStorage'), localStorage.getItem('uidLocalStorage')).subscribe(response => {
+        // this.permiso = '299';
+        console.log('EL PERMISO ENCONTRADO EN APP.COMPONENT.TS ' + response['VALOR']);
+        localStorage.setItem('PERMISOLOCALSTORAGE', response['VALOR']);
+
+        this.permiso = response['VALOR'];
+        // this.permiso = '299';
+        console.log('EL PERMISO ENCONTRADO EN APP.COMPONENT.TS ' + this.permiso);
+        localStorage.setItem('PERMISOLOCALSTORAGE', this.permiso);
+        // localStorage.setItem('PERMISOLOCALSTORAGE', '299');
+        if (this.permiso === '299' || this.permiso === '300') {
+          console.log('ENTRO CON EL PERMISO LOCALSTORAGE' + localStorage.getItem('PERMISOLOCALSTORAGE'));
+          this.verPage = true;
+        }
+      });*/
+
+
     });
+
   }
 
   ngOnInit() {

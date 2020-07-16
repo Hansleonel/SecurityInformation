@@ -130,11 +130,14 @@
 <div class="nav-tabs-custom">
   <ul class="nav nav-tabs">
     <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="true">Perfil Personal</a></li>
-    <li class="active" *ngIf="verAntecedentesSearch"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial
+    <li class="" *ngIf="verAntecedentesSearch"><a href="#tab_2" data-toggle="tab" aria-expanded="false">Historial
       de Visitas</a></li>
     <!--<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Historial de Cargos</a></li>-->
     <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Antecedentes</a></li>
-    <li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Otros</a></li>
+    <!-- TODO <TAB 05> -->
+    <!--<li class=""><a href="#tab_5" data-toggle="tab" aria-expanded="false">Movimientos</a></li>-->
+    <!-- TODO </TAB 05> -->
+    <li class="active"><a href="#tab_6" data-toggle="tab" aria-expanded="false">Movimientos Personal</a></li>
 
 
     <!--<li class="dropdown">
@@ -208,32 +211,33 @@
 
               <strong><i class="fa fa-file-text-o margin-r-5"></i> Ultima Incidencia</strong>
 
-              <p>El usuario no tiene incidencias adicionales o es su primera visita al Ministerio</p>
+              <p>{{incidenciaVisita}}</p>
 
-              <hr>
+              <!--<hr>-->
 
-              <strong><i class="fa fa-file-text-o margin-r-5"></i> Agregar Incidencia</strong>
+              <!--<strong><i class="fa fa-file-text-o margin-r-5"></i> Agregar Incidencia</strong>
 
-              <td></td>
+              <td></td>-->
 
-              <textarea rows="4" cols="80" placeholder="Ingresar Incidencia" #incidencia></textarea>
+              <!--<textarea rows="4" cols="80" placeholder="Ingresar Incidencia" #incidencia></textarea>-->
 
             </div>
           </div>
           <!-- /.table-responsive -->
         </div>
         <!-- /.box-body -->
-        <div class="box-footer clearfix" style="">
+        <!--<div class="box-footer clearfix" style="">
           <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left"
-             (click)="updateIncidenteVisita(incidencia.value)">Agregar Nueva
+             (click)="updateIncidencia(incidencia.value)">Agregar Nueva
             Informacion</a>
           <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Actualizar Informacion</a>
-        </div>
+        </div>-->
         <!-- /.box-footer -->
       </div>
     </div>
     <!-- /.tab-pane -->
-    <div class="tab-pane active" id="tab_2" *ngIf="verAntecedentesSearch">
+    <div class="tab-pane" id="tab_2" *ngIf="verAntecedentesSearch">
+      <!--<div class="tab-pane active" id="tab_2">-->
 
       <div class="box box-info">
         <kendo-grid #grid
@@ -548,8 +552,67 @@
 
     </div>
 
-    <div class="tab-pane" id="tab_5">
+    <!-- TODO <TAB 05> -->
+    <!--<div class="tab-pane" id="tab_5">
+      <div class="box box-info">
+        <kendo-grid #grid
+                    [data]="gridViewMovimientos"
+                    [pageSize]="pageSizeMovimiento"
+                    [skip]="skipMovimiento"
+                    [pageable]="true"
+                    (pageChange)="pageChangeMovimiento($event)"
 
+        >
+          <kendo-grid-column field="fecha" title="FECHA" width="112"></kendo-grid-column>
+          <kendo-grid-column field="horaI" title="HORA INGRESO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="horaS" title="HORA SLIDA" width="112"></kendo-grid-column>
+          <kendo-grid-column field="nroDocumento" title="DOCUMENTO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="piso" title="PISO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="codUnidad" title="UNIDAD" width="112"></kendo-grid-column>
+          <kendo-grid-column field="tipoPersonal" title="TIPO PERSONAL" width="112"></kendo-grid-column>
+          <kendo-grid-column field="tipoMovimiento" title="MOVIMIENTO" width="112"></kendo-grid-column>
+
+        </kendo-grid>
+
+        <hr>
+
+      </div>
+    </div>-->
+    <!-- TODO </TAB 05> -->
+
+    <!-- TODO <TAB 06> -->
+    <div class="tab-pane active" id="tab_6">
+      <div class="box box-info">
+        <kendo-grid #grid
+                    [data]="gridViewMovimientosPersona"
+                    [pageSize]="pageSizeMovimientoPersona"
+                    [skip]="skipMovimientoPersona"
+                    [pageable]="true"
+                    (pageChange)="pageChangeMovimientoPersona($event)"
+                    (edit)="editHandlerMovimientoPersona($event)"
+        >
+          <kendo-grid-column field="idRegistro" title="IDREGISTRO" width="112" hidden="true"></kendo-grid-column>
+          <kendo-grid-column field="fecha" title="FECHA" width="112"></kendo-grid-column>
+          <kendo-grid-column field="horaI" title="HORA INGRESO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="horaS" title="HORA SLIDA" width="112"></kendo-grid-column>
+          <!--<kendo-grid-column field="cargo" title="CARGO VISITADO" width="224"></kendo-grid-column>-->
+          <kendo-grid-column field="nroDocumento" title="DOCUMENTO" width="112"></kendo-grid-column>
+          <kendo-grid-column field="piso" title="PISO" width="64"></kendo-grid-column>
+          <kendo-grid-column field="unidad.sigla" title="UNIDAD" width="112"></kendo-grid-column>
+          <kendo-grid-column field="tipoPersonal" title="TIPO PERSONAL" width="180"></kendo-grid-column>
+          <kendo-grid-column field="motivoVisita" title="MOTIVO VISITA" width="180"></kendo-grid-column>
+          <kendo-grid-column field="incidencia" title="INCIDENCIA" width="160"></kendo-grid-column>
+          <kendo-grid-command-column title="DETALLE">
+            <ng-template kendoGridCellTemplate let-isNew="isNew">
+              <button kendoGridEditCommand type="button" [primary]="true">DETALLE</button>
+            </ng-template>
+          </kendo-grid-command-column>
+
+        </kendo-grid>
+
+        <hr>
+
+      </div>
     </div>
     <!-- /.tab-pane -->
   </div>

@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="/src/assets/bower_components/Ionicons/css/ionicons.min.css">
+<section class="content-header">
+  <h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Personal Mindef</a></li>
+      <li class="active">Detalle Movimiento Personal Mindef</li>
+    </ol>
+  </h1>
+</section>
+
+<div class="box box-info">
+  <div class="box-header with-border">
+    <h3 class="box-title">Detalle Movimiento</h3>
+  </div>
+  <!-- /.box-header -->
+  <!-- form start -->
+  <form role="form">
+    <div class="box-body">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-3">
+            <label>ID Movimiento</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{idRegistro}}" #id>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Fecha Movimiento Personal</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{fechaMovimiento}}">
+          </div>
+          <div class="col-xs-6">
+            <label>Hora Ingreso</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{horaIngreso}}">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Documento Personal Mindef</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{numeroDocumento}}">
+          </div>
+          <div class="col-xs-6">
+            <label>Nombre Personal Mindef</label>
+            <input disabled="" type="text" class="form-control" placeholder="" value="">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Unidad Siglas</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{unidadSigla}}">
+          </div>
+          <div class="col-xs-6">
+            <label>Unidad Nombre</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{unidadDescripcion}}">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-6">
+            <label>Tipo de Personal</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{tipoPersonal}}">
+          </div>
+          <div class="col-xs-6">
+            <label>Piso</label>
+            <input disabled type="text" class="form-control" placeholder="" value="{{piso}}">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Incidencia</label>
+        <textarea class="col-xs-12" rows="6" placeholder="Ingresar Incidencia" #Incidencia>{{incidencia}}</textarea>
+      </div>
+    </div>
+
+    <!-- /.box-body -->
+
+    <div class="box-footer">
+      <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left col-xs-4"
+         (click)="updateMovimientoPersonalMindef(Incidencia.value, id.value)">Guardar
+        Incidencia</a>
+      <a class="col-xs-4"></a>
+      <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-left col-xs-4"
+         (click)="volverSearch(numeroDocumento)"
+      >Regresar</a>
+    </div>
+
+    <div class="alert alert-success alert-dismissible" *ngIf="confirmarRegistro">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h4><i class="icon fa fa-check"></i> Registrado </h4>
+      Se registro la incidencia con exito
+    </div>
+
+  </form>
+
+</div>

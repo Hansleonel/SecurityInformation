@@ -14,7 +14,6 @@
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
-
       &lt;!&ndash; TODO Tabla simple &ndash;&gt;
       &lt;!&ndash;<div class="box">
         <div class="box-header">
@@ -404,14 +403,18 @@
   <kendo-grid-column field="invitado.nombre_invitado" title="NOMBRE"></kendo-grid-column>
   <kendo-grid-column field="invitado.apellidoP_invitado" title="A. PATERNO"></kendo-grid-column>
   <kendo-grid-column field="invitado.apellidoM_invitado" title="A. MATERNO"></kendo-grid-column>
-  <kendo-grid-column field="invitado.antecedenteP" title="ANTECEDENTES"></kendo-grid-column>
+  <!--<kendo-grid-column field="invitado.antecedenteP" title="ANTECEDENTES"></kendo-grid-column>-->
   <kendo-grid-column field="reunion.fecha_inicio" title="FECHA CITA"></kendo-grid-column>
   <kendo-grid-column field="reunion.hora_inicio" title="HORA CITA"></kendo-grid-column>
   <kendo-grid-column field="reunion.doc_autoriza" title="DOC. AUTORIZA"></kendo-grid-column>
-
-  <kendo-grid-command-column title="ANTECEDENTES">
-    <ng-template kendoGridCellTemplate let-isNew="isNew">
-      <button class="btn btn-success ion-checkmark"></button>
+  <kendo-grid-column field="invitado.antecedenteP" title="ANTECEDENTES">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <div [ngSwitch]="dataItem.invitado.antecedenteP">
+        <button class="btn btn-success ion-checkmark" *ngSwitchDefault></button>
+        <button class="btn btn-danger ion-checkmark" style="background-color: #f39c12; border-color: #f39c12" *ngSwitchCase="1"></button>
+        <button class="btn btn-danger ion-checkmark" style="background-color: #f39c12; border-color: #f39c12" *ngSwitchCase="2"></button>
+        <button class="btn btn-danger ion-alert-circled" style="background-color: #d73925" *ngSwitchCase="3"></button>
+      </div>
     </ng-template>
-  </kendo-grid-command-column>
+  </kendo-grid-column>
 </kendo-grid>

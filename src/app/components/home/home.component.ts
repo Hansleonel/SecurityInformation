@@ -9,7 +9,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  fecha: string;
   datosEncontradosDniPersona = {};
+  tokenFromService = {};
 
   constructor(private activatedRoute: ActivatedRoute,
               private dniPersonaService: DnipersonaService,
@@ -29,9 +31,18 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('uidLocalStorage', String(queryparams['uid']));
       }
       console.log('el grupo ' + localStorage.getItem('grupoLocalStorage'));
-      console.log('el accion ' + localStorage.getItem('grupoLocalStorage'));
-      console.log('el usucod ' + localStorage.getItem('grupoLocalStorage'));
-      console.log('el uid ' + localStorage.getItem('grupoLocalStorage'));
+      console.log('el accion ' + localStorage.getItem('accionLocalStorage'));
+      console.log('el usucod ' + localStorage.getItem('usucodLocalStorage'));
+      console.log('el uid ' + localStorage.getItem('uidLocalStorage'));
+
+      this.dniPersonaService.getPermisos(localStorage.getItem('usucodLocalStorage'),
+        localStorage.getItem('grupoLocalStorage'), localStorage.getItem('uidLocalStorage'))
+        .subscribe(response => {
+          // this.permiso = '299';
+          console.log('EL PERMISO ENCONTRADO EN APP.COMPONENT.TS ' + response['VALOR']);
+          localStorage.setItem('PERMISOLOCALSTORAGE', response['VALOR']);
+        });
+
 
     });
 
@@ -55,5 +66,15 @@ export class HomeComponent implements OnInit {
     // TODO ruteo con parametro
     this.router.navigate(['search/', dni]);
   }
+
+  /* getToken() {
+    this.dniPersonaService.getDateToken().subscribe((response: any) => {
+      this.tokenFromService = response;
+      console.log(this.tokenFromService['s:Envelope']['s:Body']['AutenticarResponse']['AutenticarResult']['Token']);
+      console.log(this.tokenFromService['s:Envelope']['s:Body']['AutenticarResponse']['AutenticarResult']['Vencimiento']);
+      this.fecha = this.tokenFromService['s:Envelope']['s:Body']['AutenticarResponse']['AutenticarResult']['Vencimiento'];
+
+    });
+  } */
 
 }

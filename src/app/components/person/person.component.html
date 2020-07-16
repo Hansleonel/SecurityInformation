@@ -26,9 +26,14 @@
   <kendo-grid-column field="idEmpresa" title="ID. EMPRESA"></kendo-grid-column>
   <kendo-grid-column field="validoReniec" title="VALIDO"></kendo-grid-column>
 
-  <kendo-grid-command-column title="ANTECEDENTES">
-    <ng-template kendoGridCellTemplate let-isNew="isNew">
-      <button kendoGridEditCommand type="button" [primary]="true">VER</button>
+  <kendo-grid-column field="antecedenteP" title="ANTECEDENTES">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <div [ngSwitch]="dataItem.antecedenteP">
+        <button class="btn btn-success ion-checkmark" *ngSwitchDefault></button>
+        <button class="btn btn-danger ion-checkmark" style="background-color: #f39c12; border-color: #f39c12" *ngSwitchCase="1"></button>
+        <button class="btn btn-danger ion-checkmark" style="background-color: #f39c12; border-color: #f39c12" *ngSwitchCase="2"></button>
+        <button class="btn btn-danger ion-alert-circled" style="background-color: #d73925" *ngSwitchCase="3"></button>
+      </div>
     </ng-template>
-  </kendo-grid-command-column>
+  </kendo-grid-column>
 </kendo-grid>
